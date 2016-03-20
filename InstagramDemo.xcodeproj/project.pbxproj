@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4CB25C781C9E349D000491C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB25C771C9E349D000491C3 /* AppDelegate.swift */; };
 		4CB25C7A1C9E349D000491C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB25C791C9E349D000491C3 /* ViewController.swift */; };
-		4CB25C7D1C9E349D000491C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB25C7B1C9E349D000491C3 /* Main.storyboard */; };
 		4CB25C7F1C9E349D000491C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CB25C7E1C9E349D000491C3 /* Assets.xcassets */; };
 		4CB25C821C9E349D000491C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB25C801C9E349D000491C3 /* LaunchScreen.storyboard */; };
 		4CB25C8A1C9E3E69000491C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB25C891C9E3E69000491C3 /* LoginViewController.swift */; };
 		4CB25C8C1C9E47E6000491C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB25C8B1C9E47E6000491C3 /* HomeViewController.swift */; };
+		4CB25C901C9E6956000491C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB25C8F1C9E6956000491C3 /* Main.storyboard */; };
 		D5AA73298938C84AFCA087E3 /* Pods_InstagramDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A954E0FCADD43561FB78F0 /* Pods_InstagramDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +22,12 @@
 		4CB25C741C9E349D000491C3 /* InstagramDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB25C771C9E349D000491C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CB25C791C9E349D000491C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4CB25C7C1C9E349D000491C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CB25C7E1C9E349D000491C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CB25C811C9E349D000491C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CB25C831C9E349D000491C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB25C891C9E3E69000491C3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CB25C8B1C9E47E6000491C3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4CB25C8F1C9E6956000491C3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
 		57A954E0FCADD43561FB78F0 /* Pods_InstagramDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C826353D763B3CDB15F42AC2 /* Pods-InstagramDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramDemo/Pods-InstagramDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,8 +67,8 @@
 			children = (
 				4CB25C771C9E349D000491C3 /* AppDelegate.swift */,
 				4CB25C791C9E349D000491C3 /* ViewController.swift */,
-				4CB25C7B1C9E349D000491C3 /* Main.storyboard */,
 				4CB25C7E1C9E349D000491C3 /* Assets.xcassets */,
+				4CB25C8F1C9E6956000491C3 /* Main.storyboard */,
 				4CB25C801C9E349D000491C3 /* LaunchScreen.storyboard */,
 				4CB25C831C9E349D000491C3 /* Info.plist */,
 				4CB25C891C9E3E69000491C3 /* LoginViewController.swift */,
@@ -155,9 +155,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB25C901C9E6956000491C3 /* Main.storyboard in Resources */,
 				4CB25C821C9E349D000491C3 /* LaunchScreen.storyboard in Resources */,
 				4CB25C7F1C9E349D000491C3 /* Assets.xcassets in Resources */,
-				4CB25C7D1C9E349D000491C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,14 +226,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4CB25C7B1C9E349D000491C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CB25C7C1C9E349D000491C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4CB25C801C9E349D000491C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

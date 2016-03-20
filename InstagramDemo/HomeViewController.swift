@@ -8,11 +8,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var imagePicker: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +24,30 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func onUploadImage(sender: AnyObject) {
+        
+     
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            // Get the image captured by the UIImagePickerController
+            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            
+            // Do something with the images (based on your use case)
+            
+            // Dismiss UIImagePickerController to go back to your original view controller
+            dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

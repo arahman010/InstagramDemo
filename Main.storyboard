@@ -72,7 +72,6 @@
                                 <state key="normal" title="Upload Image"/>
                                 <connections>
                                     <action selector="onUploadImage:" destination="3u0-NF-yJf" eventType="touchUpInside" id="Uca-HV-kUd"/>
-                                    <segue destination="dhF-J2-2qx" kind="presentation" identifier="ImagePickerSegue" id="2e5-K0-LTh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,25 +82,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA0-wa-F37" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="647" y="293"/>
-        </scene>
-        <!--Image Picker Controller-->
-        <scene sceneID="ZGD-Jl-WZt">
-            <objects>
-                <viewController id="dhF-J2-2qx" customClass="ImagePickerController" customModule="InstagramDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="onx-6n-OMU"/>
-                        <viewControllerLayoutGuide type="bottom" id="hP3-et-TNF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AnS-HH-LCP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="41U-sz-JRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="992" y="293"/>
         </scene>
     </scenes>
 </document>
