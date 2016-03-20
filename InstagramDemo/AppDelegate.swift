@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
+        
+        
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "instagramDemo"
+                configuration.clientKey = "Yt00ypBdbA"  // set to nil assuming you have not set clientKey
+                configuration.server = "http://dry-wave-23173.herokuapp.com/parse"
+            })
+        )
+        
+        
+        if ( PFUser.currentUser() != nil ) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("HomeViewController")
+            
+            window?.rootViewController = vc
+            
+            
+        }
+            return true
+    
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
