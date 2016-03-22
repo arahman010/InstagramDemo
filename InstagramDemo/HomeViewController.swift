@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Parse
+
+
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var imagePicker: UIImagePickerController!
+    
+    var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +28,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLogOut(sender: AnyObject) {
+        PFUser.logOut()
+        if ( PFUser.currentUser() == nil ) {
+            self.performSegueWithIdentifier("HomeViewSegue", sender: nil)
+            
+        }
+        
+    }
     
     @IBAction func onUploadImage(sender: AnyObject) {
         
      
-        imagePicker = UIImagePickerController()
+      let  imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .PhotoLibrary
@@ -36,27 +48,46 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         presentViewController(imagePicker, animated: true, completion: nil)
 
     }
+   
+   
+        func imagePickerController(picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+                // Get the image captured by the UIImagePickerController
+                //            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+                
+                self.selectedImage = editedImage
+                
+                
+                
+                // Dismiss UIImagePickerController to go back to your original view controller
+                self.dismissViewControllerAnimated(true) { () -> Void in
+                    self.performSegueWithIdentifier("ImagePostSegue", sender: nil)
+                }
+                
+                
+        }
+        
+        
     
-    func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-            // Get the image captured by the UIImagePickerController
-            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-            
-            // Do something with the images (based on your use case)
-            
-            // Dismiss UIImagePickerController to go back to your original view controller
-            dismissViewControllerAnimated(true, completion: nil)
-    }
+    
 
-    /*
+
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ImagePostSegue") {
+        let nav = segue.destinationViewController as! ImagePostViewController
+        nav.importedImage = self.selectedImage
+        
+        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
