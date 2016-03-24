@@ -55,6 +55,9 @@ class ImagePostViewController: UIViewController {
     
     }
 
+    @IBAction func onCancelTap(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

@@ -219,6 +219,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGg-TS-7UY">
+                                <rect key="frame" x="131" y="503" width="59" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="uMK-Dg-rPj"/>
+                                    <constraint firstAttribute="height" constant="35" id="yyS-ku-Vog"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancelTap:" destination="d8U-iF-buh" eventType="touchUpInside" id="v1l-o2-urP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -229,6 +241,8 @@
                             <constraint firstItem="SEX-Kz-VrN" firstAttribute="top" secondItem="eaW-Fx-eGh" secondAttribute="bottom" constant="42" id="BbG-Fb-NIR"/>
                             <constraint firstItem="eaW-Fx-eGh" firstAttribute="top" secondItem="LBA-AT-8bh" secondAttribute="bottom" constant="23" id="DcB-er-Ras"/>
                             <constraint firstAttribute="trailing" secondItem="SEX-Kz-VrN" secondAttribute="trailing" constant="20" id="IoE-5Y-Xp2"/>
+                            <constraint firstItem="cGg-TS-7UY" firstAttribute="top" secondItem="bb0-bz-NNF" secondAttribute="bottom" constant="20" id="JpM-XT-p7d"/>
+                            <constraint firstAttribute="trailing" secondItem="cGg-TS-7UY" secondAttribute="trailing" constant="130" id="KqY-HS-etL"/>
                             <constraint firstItem="SEX-Kz-VrN" firstAttribute="leading" secondItem="U0g-Cp-Ipa" secondAttribute="leading" id="Lma-S4-ixR"/>
                             <constraint firstItem="bb0-bz-NNF" firstAttribute="leading" secondItem="DRx-V0-bOC" secondAttribute="leading" constant="131" id="MbN-y5-DiN"/>
                             <constraint firstItem="U0g-Cp-Ipa" firstAttribute="top" secondItem="SEX-Kz-VrN" secondAttribute="bottom" constant="8" id="SfJ-ht-FcY"/>
@@ -241,6 +255,7 @@
                             <constraint firstItem="SEX-Kz-VrN" firstAttribute="top" secondItem="eaW-Fx-eGh" secondAttribute="bottom" constant="42" id="jkk-Ia-zwG"/>
                             <constraint firstItem="SEX-Kz-VrN" firstAttribute="trailing" secondItem="eaW-Fx-eGh" secondAttribute="trailing" id="pfo-xW-KzH"/>
                             <constraint firstItem="iRd-Jy-Y15" firstAttribute="top" secondItem="bb0-bz-NNF" secondAttribute="bottom" constant="85" id="q7u-9c-07B"/>
+                            <constraint firstItem="cGg-TS-7UY" firstAttribute="leading" secondItem="DRx-V0-bOC" secondAttribute="leading" constant="131" id="qRK-dI-2jM"/>
                             <constraint firstItem="SEX-Kz-VrN" firstAttribute="centerX" secondItem="DRx-V0-bOC" secondAttribute="centerX" id="s3F-vp-ktc"/>
                             <constraint firstAttribute="trailing" secondItem="bb0-bz-NNF" secondAttribute="trailing" constant="130" id="sbr-Bx-2Pv"/>
                             <constraint firstAttribute="trailing" secondItem="U0g-Cp-Ipa" secondAttribute="trailing" constant="182" id="xS2-Vo-IuI"/>
