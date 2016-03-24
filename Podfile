@@ -5,6 +5,7 @@
 
 target 'InstagramDemo' do
     pod 'Parse'
+    pod 'ParseUI'
 
 end
 

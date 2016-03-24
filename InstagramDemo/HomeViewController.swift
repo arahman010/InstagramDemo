@@ -8,16 +8,32 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
     var selectedImage: UIImage?
     
+    var postArray: [PFObject]?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        
+        
+        
+        fetchPosts()
+        tableView.reloadData()
         
         
         // Do any additional setup after loading the view.
@@ -27,6 +43,46 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return postArray?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
+        if ( postArray != nil ) {
+        cell.instagramPost = postArray![indexPath.row]
+        }
+        
+        return cell
+    }
+    
+    func fetchPosts () {
+        let query = PFQuery(className: "Post")
+        // query.orderByDescending("createdAt")
+        //query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackgroundWithBlock { (posts: [PFObject]?, error: NSError?) -> Void in
+            if let posts = posts {
+                    self.postArray = posts
+            
+                print("Posts achieved")
+                self.tableView.reloadData()
+            }
+                // do something with the data fetched
+            else {
+                // handle error
+                print(error?.localizedDescription)
+            }
+        }
+
+    }
+    
+    
+    
+    
     
     @IBAction func onLogOut(sender: AnyObject) {
         PFUser.logOut()
@@ -50,25 +106,25 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
    
    
-        func imagePickerController(picker: UIImagePickerController,
-            didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-                // Get the image captured by the UIImagePickerController
-                //            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-                let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-                
-                self.selectedImage = editedImage
-                
-                
-                
-                // Dismiss UIImagePickerController to go back to your original view controller
-                self.dismissViewControllerAnimated(true) { () -> Void in
-                    self.performSegueWithIdentifier("ImagePostSegue", sender: nil)
-                }
-                
-                
-        }
-        
-        
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            // Get the image captured by the UIImagePickerController
+            //            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            
+            self.selectedImage = editedImage
+            
+            
+            
+            // Dismiss UIImagePickerController to go back to your original view controller
+            self.dismissViewControllerAnimated(true) { () -> Void in
+                self.performSegueWithIdentifier("ImagePostSegue", sender: nil)
+            }
+            
+            
+    }
+    
+    
     
     
 
