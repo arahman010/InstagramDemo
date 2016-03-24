@@ -59,8 +59,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func fetchPosts () {
         let query = PFQuery(className: "Post")
-        // query.orderByDescending("createdAt")
-        //query.includeKey("author")
+        query.orderByDescending("createdAt")
+        query.includeKey("author")
         query.limit = 20
         
         // fetch data asynchronously
@@ -80,7 +80,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        fetchPosts()
+        self.tableView.reloadData()
+    }
     
     
     
